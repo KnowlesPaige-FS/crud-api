@@ -6,12 +6,12 @@ import eventsBackground from '../images/img-03.jpg';
 import eventOne from '../images/img-01.jpg';
 import { Link } from 'react-router-dom';
 
-function Events() {
+function PastEvents() {
     return (
         <section style={styles.container}>
             <Header style={styles.header}
-                title='Events'
-                desc="Discover the pulse of the cinematic world with FlickFiction's curated events. Below, you'll find a dynamic list of upcoming screenings, film festivals, and special events that promise to ignite your passion for storytelling on the silver screen. Join us as we delve into the magic of cinema together and share these unforgettable experiences with fellow film enthusiasts."
+                title='Past Events'
+                desc="In the past, FlickFiction has hosted a variety of captivating events that have brought together film enthusiasts from all walks of life. From intimate screenings of indie gems to grand celebrations of cinematic classics, each event has offered a unique opportunity to immerse ourselves in the magic of storytelling on the silver screen. Whether it's delving into the depths of horror, laughing out loud with uproarious comedies, or swooning over timeless romances, our past events have left lasting memories and sparked engaging discussions among our diverse community of movie lovers."
                 backgroundImage={eventsBackground}
             />
             <section>
@@ -44,13 +44,13 @@ function Events() {
                 />  
             </section>
             <section>
-                <Link to='/pastevents'>Previous Events</Link>
+                <Link to='/events'>Upcoming Events</Link>
             </section>
         </section>
     );
 }
 
-export default Events;
+export default PastEvents;
 
 const styles = {
     header: {

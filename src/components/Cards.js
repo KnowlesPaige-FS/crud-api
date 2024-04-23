@@ -5,15 +5,25 @@ import { Link } from 'react-router-dom';
 const Cards = props => {
 
     return (
-        <article class="d-flex flex-column justify-content-start text-center" style={styles.card}>
+        <article class="d-flex flex-row justify-content-between align-items-start text-center" style={styles.card}>
+            <section>
+                <div style={styles.date}>
+                    <h4>{props.date}</h4>
+                </div>
+            </section>
             <section class='' style={styles.cardImg}>
                 <img style={styles.img} src={props.img} alt='Photo placeholder' />   
             </section>
-            <section class="d-flex flex-column justify-content-end align-items-center" style={styles.cardInfo}>
-                <div>  
-                    <p style={styles.desc}>{props.desc}</p>
+            <section class="d-flex flex-column justify-content-between align-items-center" style={styles.eventInfo}>
+                <div class="d-flex flex-column justify-content-between align-items center">
+                    <h4>{props.title}</h4>
+                    <h5>{props.location}</h5>
+                    <h5>{props.time}</h5>
+                    <p>{props.eventDesc}</p>
                 </div>
-                <Link to="/" style={styles.link}>Read More</Link>
+                <div>
+                    <Link to={props.linkTo} style={styles.link}>View Movie Details</Link>
+                </div>
             </section>
         </article>
     );
@@ -23,20 +33,27 @@ export default Cards;
 
 const styles = {
     card: {
-        
+        margin: '2%',
+        padding: '2% 0',
+        width: '90%',
+        borderTop: '1px solid rgba(56, 50, 48, 0.6)',
     },
-    cardImg: {
-        width: '100%',
-        height: '50%'
-    },
-    img: {
+    date: {
 
     },
-    cardInfo: {
-    
+    cardImg: {
+        width: '550px',
+        height: '350px'
+    },
+    img: {
+        width: '100%',
+        height: '100%',
+        boxShadow: '0px 0px 10px rgba(56, 50, 48, 0.6)'
+    },
+    eventInfo: {
+        width: '50%'
     },
     link: {
-        // color: '#8B8E51',
         textDecoration: 'none',
         fontVariant: 'small-caps'
     }    
