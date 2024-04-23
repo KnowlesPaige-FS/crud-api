@@ -1,37 +1,45 @@
 import React from "react";
 
-const Header = props => {
+const Header = ({ title, desc, backgroundImage }) => {
+    const headerStyle = {
+        height: '70vh',
+        textAlign: 'center',
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center'
+    };
+
     return (
-        <header style={styles.header}>
-            <section class="d-flex flex-row justify-content-between align-items-end" style={styles.mainSection}>
-                <div class="d-flex flex-column" style={styles.mainContent}>
-                    <h4 style={styles.h4}>{props.welcome}</h4>
-                    <h1 style={styles.h1}>{props.title}</h1>
-                    <p style={styles.p}>{props.desc}</p>
+        <header style={headerStyle}>
+            <section className="" style={styles.mainSection}>
+                <div className="d-flex flex-column justify-content-center align-items-center" style={styles.mainContent}>
+                    <h1 style={styles.h1}>{title}</h1>
+                    <p style={styles.p}>{desc}</p>
                 </div>
             </section>
         </header>
-    )
-}
+    );
+};
 
 export default Header;
 
 const styles = {
-    header: {
-        margin: '0 2%',
-        padding: '1%',
-        height: '70vh'
+    mainSection: {
+        marign: '0 auto'
     },
     mainContent: {
-        width: '50%'
-    },
-    h4: {
-
+        width: '55%',
+        margin: '0 auto',
     },
     h1: {
-        margin: '1.5% 0'
+        margin: '1.5% 0',
     },
-    headerImg: {
-        width: '40%'
-    } 
-}
+    p: {
+        width: '70%',
+        color: '#FFEFCD',
+    }
+};

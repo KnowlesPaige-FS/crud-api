@@ -6,7 +6,7 @@ import Header from '../components/Header';
 function Movies() {
     return (
         <section style={styles.container}>
-            <Header 
+            <Header style={styles.header}
                 title=''
                 desc=""
             />
@@ -20,5 +20,7 @@ function Movies() {
 export default Movies;
 
 const styles = {
-    
+    header: {
+        
+    }
 }
