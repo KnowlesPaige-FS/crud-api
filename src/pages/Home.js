@@ -48,7 +48,7 @@ function Home() {
             </section>
             <section style={styles.about}>
                 <div className="d-flex flex-column justify-content-between align-items-center" style={styles.aboutContent}>
-                    <h3>About FlickFiction</h3>
+                    <h2 style={styles.h2}>About FlickFiction</h2>
                     <p style={styles.p}>At FlickFiction, we're passionate about the art of storytelling through film. Founded by a team of cinephiles with a shared love for the magic of movies, our platform is dedicated to celebrating the diverse and captivating narratives that cinema has to offer.</p>
                     <Link to='/about' style={styles.link}>Learn More</Link>
                 </div>
@@ -74,6 +74,9 @@ const styles = {
     aboutContent: {
         width: '55%',
         margin: '0 auto',
+    },
+    h2: {
+        margin: '1.5% 0',
     },
     p: {
         width: '70%'

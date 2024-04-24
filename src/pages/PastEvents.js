@@ -1,10 +1,11 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Cards from '../components/Cards';
 import eventsBackground from '../images/img-03.jpg';
-import eventOne from '../images/img-01.jpg';
-import { Link } from 'react-router-dom';
+import eventOne from '../images/movie-rhs.jpg';
+
 
 function PastEvents() {
     return (
