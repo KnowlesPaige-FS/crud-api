@@ -1,13 +1,25 @@
-const express = require('express');
+const http = require("http");
+const app = require("./app/app"); 
+require("dotenv").config();
+
 const mongoose = require('mongoose');
+const port = process.env.PORT; 
 
-const app = express();
+if (!process.env.MONGO_URI) {
+    console.error("MONGO_URI is not defined.");
+    process.exit(1);
+}
 
-app.use(express.json());
-
-app.get('/', (req, res) => {
-  res.send('Hello from MERN backend!');
+mongoose.connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+})
+.then(() => {
+    console.log("MongoDB connected...");
+    http.createServer(app).listen(port, () => {
+        console.log(`Server running on port ${port}`);
+    });
+})
+.catch(err => {
+    console.error("MongoDB connection error:", err.message);
 });
-
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
