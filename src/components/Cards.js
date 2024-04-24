@@ -12,6 +12,7 @@ const Cards = props => {
                 </div>
             </section>
             <section class='' style={styles.cardImg}>
+                <div style={styles.overlay}></div>
                 <img style={styles.img} src={props.img} alt='Photo placeholder' />   
             </section>
             <section class="d-flex flex-column justify-content-between align-items-center" style={styles.eventInfo}>
@@ -41,9 +42,19 @@ const styles = {
     date: {
 
     },
+    
     cardImg: {
         width: '550px',
-        height: '350px'
+        height: '350px',
+        position: 'relative'
+    },
+    overlay: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        backgroundColor: 'rgba(56, 50, 48, 0.7)',
     },
     img: {
         width: '100%',

@@ -17,6 +17,7 @@ function App() {
         <section>
           <Routes>
             <Route path='/' element={<Home />} />
+            <Route path='/home' element={<Home />} />
             <Route path='/events' element={<Events />} />
             <Route path='/pastevents' element={<PastEvents />} />
             <Route path='/about' element={<About />} />
