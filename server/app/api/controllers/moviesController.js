@@ -24,10 +24,12 @@ const getMovieById = async (req, res) => {
 };
 
 const createMovie = async (req, res) => {
-    const { title, poster_path, genre, release_date, overview } = req.body;
+    const { title, poster_path, backdrop_path, genre_id, genre, release_date, overview } = req.body;
     const movie = new Movie({
         title,
         poster_path,
+        backdrop_path,
+        genre_id,
         genre,
         release_date,
         overview
@@ -51,6 +53,8 @@ const updateMovie = async (req, res) => {
 
         movie.title = req.body.title || movie.title;
         movie.poster_path = req.body.poster_path || movie.poster_path;
+        movie.backdrop_path = req.body.backdrop_path || movie.backdrop_path;
+        movie.genre_id = req.body.genre_id || movie.genre_id;
         movie.genre = req.body.genre || movie.genre;
         movie.release_date = req.body.release_date || movie.release_date;
         movie.overview = req.body.overview || movie.overview;
