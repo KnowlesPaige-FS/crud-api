@@ -5,10 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon concurrently \"npm run server.js\" \"npm run client\"",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "react-scripts build",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
@@ -30,9 +27,5 @@
     "react-dom": "^18.2.0",
     "react-scripts": "^5.0.1",
     "tailwindcss": "^3.4.3"
-  },
-  "devDependencies": {
-    "gh-pages": "^6.1.1"
-  },
-  "homepage": "https://KnowlesPaige-FS.github.io/crud-api"
+  }
 }
