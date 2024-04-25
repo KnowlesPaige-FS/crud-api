@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from '../../../../client/app/src/axios.config'; 
+import axios from '../axios.config'; 
 import { useParams } from 'react-router-dom';
 import MovieHeader from '../components/MovieHeader';
 
@@ -92,4 +92,3 @@ const styles = {
             marign: '2% 0'
         }
     };
-
