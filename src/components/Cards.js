@@ -46,7 +46,7 @@ const styles = {
     cardImg: {
         width: '550px',
         height: '350px',
-        position: 'relative'
+        position: 'relative'    
     },
     overlay: {
         position: 'absolute',
@@ -55,11 +55,13 @@ const styles = {
         width: '100%',
         height: '100%',
         backgroundColor: 'rgba(56, 50, 48, 0.7)',
+        borderRadius: '4%'
     },
     img: {
         width: '100%',
         height: '100%',
-        boxShadow: '0px 0px 10px rgba(56, 50, 48, 0.6)'
+        boxShadow: '0px 0px 10px rgba(56, 50, 48, 0.6)',
+        borderRadius: '4%' 
     },
     eventInfo: {
         width: '50%'

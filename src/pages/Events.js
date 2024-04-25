@@ -24,7 +24,7 @@ function Events() {
                     location="Bayfront Park, Governor's Harbour"
                     time='7:00pm - 11:00pm'
                     eventDesc="Embark on an unforgettable cinematic adventure as we journey to Middle-earth with 'The Lord of the Rings: The Fellowship of the Ring.' Join us for an immersive viewing experience filled with breathtaking landscapes, heroic quests, and unforgettable characters. Let the magic of Tolkien's epic tale sweep you away on a quest to destroy the One Ring and save Middle-earth from "
-                    linkTo='/movies/66292f7f4548410889928953'
+                    linkTo='/movies/66292f7f4548410889928950'
                 />
                <Cards 
                     img={eventTwo}
@@ -45,7 +45,7 @@ function Events() {
                     linkTo='/movies/66292f7f4548410889928934'
                 />  
             </section>
-            <section>
+            <section class="d-flex flex-row justify-content-start align-items-center" >
                 <Link to='/pastevents' style={styles.link}>Previous Events</Link>
             </section>
         </section>

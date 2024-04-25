@@ -5,6 +5,10 @@ import Header from '../components/Header';
 import Cards from '../components/Cards';
 import eventsBackground from '../images/img-03.jpg';
 import eventOne from '../images/movie-rhs.jpg';
+import eventTwo from '../images/movie-05-2.jpg';
+import eventThree from '../images/movie-01-2.jpg';
+import eventFour from '../images/movie-06-2.jpg';
+import eventFive from '../images/movie-04-2.jpg';
 
 
 function PastEvents() {
@@ -26,7 +30,7 @@ function PastEvents() {
                     linkTo='/movies/66292f7f454841088992898c'
                 />
                <Cards 
-                    img={eventOne}
+                    img={eventTwo}
                     date='April 12'
                     title="Get Out: Thrills & Chills Night!"
                     location="Cape Eleuthera, Deep Creek"
@@ -35,7 +39,7 @@ function PastEvents() {
                     linkTo='/movies/66292f7f4548410889928964'
                 />
                 <Cards 
-                    img={eventOne}
+                    img={eventThree}
                     date='April 6'
                     title="Toy Story Spectacular: A Playdate with Adventure!"
                     location="The Cove, Gregory Town"
@@ -44,7 +48,7 @@ function PastEvents() {
                     linkTo='/movies/66292f7f4548410889928978'
                 />  
                 <Cards 
-                    img={eventOne}
+                    img={eventFour}
                     date='March 28'
                     title="Fast & Furious Frenzy: Full Throttle Cinema!"
                     location="Potlatch Club, Governor's Harbour"
@@ -53,7 +57,7 @@ function PastEvents() {
                     linkTo='/movies/66292f7f4548410889928994'
                 />  
                 <Cards 
-                    img={eventOne}
+                    img={eventFive}
                     date='March 18'
                     title="Unforgettable Love: The Notebook"
                     location="Bayfront Park, Governor's Harbour"
@@ -62,7 +66,7 @@ function PastEvents() {
                     linkTo='/movies/66292f7f45484108899289a6'
                 />  
             </section>
-            <section>
+            <section class="d-flex flex-row justify-content-end align-items-center">
                 <Link to='/events' style={styles.link}>Upcoming Events</Link>
             </section>
         </section>
@@ -72,9 +76,6 @@ function PastEvents() {
 export default PastEvents;
 
 const styles = {
-    header: {
-
-    },
     link: {
         textDecoration: 'none',
         fontVariant: 'small-caps',

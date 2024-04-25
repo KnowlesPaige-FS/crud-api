@@ -1,9 +1,7 @@
-/* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useState, useEffect } from 'react';
 import axios from '../axios.config'; 
 import { useParams } from 'react-router-dom';
-import Header from '../components/Header';
-import background from '../images/img-01.jpg';
+import MovieHeader from '../components/MovieHeader';
 
 const Movies = () => {
   const { id } = useParams();
@@ -29,17 +27,25 @@ const Movies = () => {
 
   return (
     <section style={styles.container}>
-      <Header
-        title={movie.title}
-        desc={movie.overview}
-        backgroundImage={background}
+      <MovieHeader
+        backgroundImage={movie.backdrop_path}
       />
-      <section style={styles.movieContent}>
+      <section style={styles.movieContent} class="d-flex flex-row justify-content-around align-items-center">
         <div style={styles.posterImg}>
           <div style={styles.overlay}></div>
-          <img style={styles.img} src={movie.poster_path} alt='Photo placeholder' />
+          <img style={styles.img} src={movie.poster_path} alt='Movie Poster' />
         </div>
-        <div></div>
+        <div style={styles.desc}>
+            <div style={styles.headings}>
+              <h2>{movie.title}</h2>
+            </div>
+            
+            <div style={styles.overview}>
+                <h3>Overview:</h3>
+                <p style={styles.p}>{movie.overview}</p>  
+            </div>
+            
+        </div>
       </section>
     </section>
   );
@@ -48,12 +54,17 @@ const Movies = () => {
 export default Movies;
 const styles = {
         movieContent: {
-            background: 'rgba(66, 69, 48, .60)'
+            padding: '2% 0',
+            background: 'rgba(66, 69, 48, .50)',
+            textAlign: 'center'
         },
         posterImg: {
-            width: '350px',
+            // width: '350px',
+            width: '25%',
             height: '550px',
-            position: 'relative'
+            position: 'relative',
+            margin: '0 5%',
+
         },
         overlay: {
             position: 'absolute',
@@ -62,10 +73,23 @@ const styles = {
             width: '100%',
             height: '100%',
             backgroundColor: 'rgba(56, 50, 48, 0.7)',
+            borderRadius: '4%'
         },
         img: {
             width: '100%',
             height: '100%',
-            boxShadow: '0px 0px 10px rgba(56, 50, 48, 0.6)'
+            boxShadow: '0px 0px 10px rgba(56, 50, 48, 0.6)',
+            borderRadius: '4%'
         },
+        desc: {
+            margin: '0 5%',
+            width: '40%',
+        },
+        headings: {
+            margin: '0 0 4%'
+        },
+        overview: {
+            marign: '2% 0'
+        }
     };
+
