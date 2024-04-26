@@ -38,6 +38,12 @@ app.get("/", (req, res, next) => {
 
 app.use("/v1/app/movies", moviesRouter);
 
+// app.use(express.static(path.join(__dirname, '../../app/app/build')));
+
+// app.get('/*', (req, res) => {
+//     res.sendFile(path.join(__dirname, '../../app/app/build', 'index.html'))
+// });
+
 app.use((req, res, next) => {
     const error = new Error("NOT FOUND!!");
     error.status = 404;
@@ -65,10 +71,6 @@ mongoose.connect(process.env.MONGO_URI, {
         console.error("MongoDB connection error:", err.message);
     });
 
-    app.use(express.static(path.join(__dirname, '../../app/app/build')));
-
-    app.get('/*', (req, res) => {
-        res.sendFile(path.join(__dirname, '../../app/app/build', 'index.html'))
-    });
+    
 
 module.exports = app;
