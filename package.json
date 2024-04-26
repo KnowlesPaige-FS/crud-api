@@ -9,7 +9,7 @@
     "install-app": "npm install --prefix app",
     "install-server": "npm install --prefix server",
     "build-app": "npm run build --prefix app",
-    "heroku-postbuild": "concurrently \"npm run install-app\" \"npm run install-server\" \"npm run build-app\"",
+    "heroku-postbuild": "concurrently \"npm install-*\"; concurrently \"npm run build-*\"",
     "start": "npm start --prefix server",
     "dev:app": "concurrently --raw \"npm run server\" \"npm run app\"",
     "app": "cd app && npm run start",
