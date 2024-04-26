@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from '../axios.config'; 
+import axios from 'axios'; 
 import { useParams } from 'react-router-dom';
 import MovieHeader from '../components/MovieHeader';
 
