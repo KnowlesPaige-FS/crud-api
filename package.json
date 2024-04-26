@@ -6,7 +6,7 @@
   },
   "description": "",
   "scripts": {
-    "install-app": "npm install --prefix app",
+    "install-app": "npm install --prefix app/app",
     "install-server": "npm install --prefix server",
     "build-app": "npm run build --prefix app",
     "heroku-postbuild": "npm run install-app && npm run install-server && npm run build-app",
