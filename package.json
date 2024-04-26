@@ -9,11 +9,11 @@
     "install-app": "npm install --prefix app",
     "install-server": "npm install --prefix server",
     "build-app": "npm run build --prefix app",
-    "heroku-postbuild": "concurrently \"npm install-*\"; concurrently \"npm run build-*\"",
+    "heroku-postbuild": "concurrently \"npm install-*\"; concurrently \"npm run build-*\";",
     "start": "npm start --prefix server",
     "dev:react": "concurrently --raw \"npm run server\" \"npm run app\"",
     "react": "cd app && npm run start",
-    "server": "cd server; nodemon server.js"
+    "server": "cd server && nodemon server.js"
   },
   "keywords": [],
   "author": "",
