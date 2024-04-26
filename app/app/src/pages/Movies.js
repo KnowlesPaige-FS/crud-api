@@ -44,7 +44,7 @@ const Movies = () => {
             <div style={styles.overview}>
                 <h3>Overview:</h3>
                 <p style={styles.p}>{movie.overview}</p>  
-                <h5>{movie.genre}</h5>
+                <h5>{movie.genre_id}</h5>
             </div>
             
         </div>
