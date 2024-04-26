@@ -36,7 +36,7 @@ app.get("/", (req, res, next) => {
     });
 });
 
-app.use("/api/v1/movies", moviesRouter);
+app.use("/movies", moviesRouter);
 
 app.use((req, res, next) => {
     const error = new Error("NOT FOUND!!");
