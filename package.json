@@ -2,19 +2,18 @@
   "name": "crud-api",
   "version": "1.0.0",
   "engines": {
-    "node": "14.x"
+    "node": "21.6.2"
   },
   "description": "",
   "scripts": {
     "install-app": "npm install --prefix app",
-    "install-server": "npm install --prefix server", 
+    "install-server": "npm install --prefix server",
     "build-app": "npm run build --prefix app",
     "heroku-postbuild": "concurrently \"npm run install-app\" \"npm run install-server\" \"npm run build-app\"",
     "start": "npm start --prefix server",
     "dev:app": "concurrently --raw \"npm run server\" \"npm run app\"",
     "app": "cd app && npm run start",
     "server": "cd server; nodemon server.js"
-  
   },
   "keywords": [],
   "author": "",
@@ -22,6 +21,7 @@
   "dependencies": {
     "axios": "^1.6.8",
     "bootstrap": "^5.3.3",
+    "concurrently": "^8.2.2",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
