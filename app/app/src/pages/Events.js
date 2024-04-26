@@ -45,7 +45,7 @@ function Events() {
                     linkTo='/movies/66292f7f4548410889928934'
                 />  
             </section>
-            <section class="d-flex flex-row justify-content-start align-items-center" >
+            <section className="d-flex flex-row justify-content-start align-items-center" >
                 <Link to='/pastevents' style={styles.link}>Previous Events</Link>
             </section>
         </section>

@@ -30,7 +30,7 @@ const Movies = () => {
       <MovieHeader
         backgroundImage={movie.backdrop_path}
       />
-      <section style={styles.movieContent} class="d-flex flex-row justify-content-around align-items-center">
+      <section style={styles.movieContent} className="d-flex flex-row justify-content-around align-items-center">
         <div style={styles.posterImg}>
           <div style={styles.overlay}></div>
           <img style={styles.img} src={movie.poster_path} alt='Movie Poster' />
@@ -38,11 +38,13 @@ const Movies = () => {
         <div style={styles.desc}>
             <div style={styles.headings}>
               <h2>{movie.title}</h2>
+              <h5>{movie.release_date}</h5>
             </div>
             
             <div style={styles.overview}>
                 <h3>Overview:</h3>
                 <p style={styles.p}>{movie.overview}</p>  
+                <h5>{movie.genre}</h5>
             </div>
             
         </div>

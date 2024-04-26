@@ -5,10 +5,10 @@ import logo from '../images/logo.png';
 
 const Navigation = () => {
   return (
-    <nav style={styles.nav} class="d-flex flex-row justify-content-between align-items-center">
+    <nav style={styles.nav} className="d-flex flex-row justify-content-between align-items-center">
         <Link to='/'><img style={styles.img} src={logo} alt="FlickFiction logo"/></Link>
         <div>
-            <ul style={styles.ul} class="d-flex flex-row justify-content-end align-items-center">
+            <ul style={styles.ul} className="d-flex flex-row justify-content-end align-items-center">
             <li style={styles.li}> 
                 <Link to="/" style={styles.link}>Home</Link>
             </li>

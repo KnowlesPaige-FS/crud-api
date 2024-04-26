@@ -5,18 +5,18 @@ import { Link } from 'react-router-dom';
 const Cards = props => {
 
     return (
-        <article class="d-flex flex-row justify-content-between align-items-start text-center" style={styles.card}>
+        <article className="d-flex flex-row justify-content-between align-items-start text-center" style={styles.card}>
             <section>
                 <div style={styles.date}>
                     <h4>{props.date}</h4>
                 </div>
             </section>
-            <section class='' style={styles.cardImg}>
+            <section className='' style={styles.cardImg}>
                 <div style={styles.overlay}></div>
                 <img style={styles.img} src={props.img} alt='Photo placeholder' />   
             </section>
-            <section class="d-flex flex-column justify-content-between align-items-center" style={styles.eventInfo}>
-                <div class="d-flex flex-column justify-content-between align-items center">
+            <section className="d-flex flex-column justify-content-between align-items-center" style={styles.eventInfo}>
+                <div className="d-flex flex-column justify-content-between align-items center">
                     <h4>{props.title}</h4>
                     <h5>{props.location}</h5>
                     <h5>{props.time}</h5>

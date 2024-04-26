@@ -66,7 +66,7 @@ function PastEvents() {
                     linkTo='/movies/66292f7f45484108899289a6'
                 />  
             </section>
-            <section class="d-flex flex-row justify-content-end align-items-center">
+            <section className="d-flex flex-row justify-content-end align-items-center">
                 <Link to='/events' style={styles.link}>Upcoming Events</Link>
             </section>
         </section>
