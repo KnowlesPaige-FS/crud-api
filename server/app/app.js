@@ -4,7 +4,9 @@ const morgan = require("morgan");
 const mongoose = require("mongoose");
 const moviesRouter = require("../app/api/routes/movies");
 const cors = require("cors");
+const path = require("path");
 require('dotenv').config();
+
 
 app.use(morgan("dev"));
 
@@ -34,7 +36,7 @@ app.get("/", (req, res, next) => {
     });
 });
 
-app.use("/movies", moviesRouter);
+app.use("/api/v1/movies", moviesRouter);
 
 app.use((req, res, next) => {
     const error = new Error("NOT FOUND!!");
@@ -61,6 +63,12 @@ mongoose.connect(process.env.MONGO_URI, {
     })
     .catch(err => {
         console.error("MongoDB connection error:", err.message);
+    });
+
+    app.use(express.static(path.join(__dirname, '../../app/app/build')));
+
+    app.get('/*', (req, res) => {
+        res.sendFile(path.join(__dirname, '../../app/app/build', 'index.html'))
     });
 
 module.exports = app;
