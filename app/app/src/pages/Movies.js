@@ -38,7 +38,7 @@ const Movies = () => {
         <div style={styles.desc}>
             <div style={styles.headings}>
               <h2>{movie.title}</h2>
-              <h5>{movie.release_date}</h5>
+              <h5>Release Date:{movie.release_date}</h5>
             </div>
             
             <div style={styles.overview}>
