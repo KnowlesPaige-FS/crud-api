@@ -12,7 +12,7 @@
     "heroku-postbuild": "npm run install-app && npm run install-server && npm run build-app",
     "start": "npm run dev",
     "dev:react": "concurrently \"npm run server\" \"npm run app\"",
-    "app": "cd app && npm start",
+    "app": "cd app/app && npm start",
     "server": "cd server && nodemon server.js"
   },
   "keywords": [],
