@@ -4,7 +4,8 @@
   "private": true,
   "proxy": "http://localhost:4003/v1/app",
   "engines": {
-    "node": "21.6.2"
+    "node": "21.6.2",
+    "npm": "10.6.0"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
