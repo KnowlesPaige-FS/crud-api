@@ -10,7 +10,7 @@
     "install-server": "npm install --prefix server",
     "build-app": "npm run build --prefix app/app",
     "heroku-postbuild": "npm run install-app && npm run install-server && npm run build-app",
-    "start": "node server.js",  
+    "start": "node server/server.js",  
     "dev": "concurrently \"npm run server\" \"npm run app\"", 
     "prod": "node server.js",
     "dev:react": "concurrently \"npm run server\" \"npm run app\"",
