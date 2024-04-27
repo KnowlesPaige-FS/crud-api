@@ -10,7 +10,10 @@ require('dotenv').config();
 
 app.use(morgan("dev"));
 
-app.use(cors());
+// app.use(cors());
+app.use(cors({
+    origin: 'https://flickfiction-598c32e758ed.herokuapp.com'
+  }));
 
 app.use(express.urlencoded({
     extended: true
@@ -41,8 +44,9 @@ app.use("/v1/app/movies", moviesRouter);
 app.use(express.static(path.join(__dirname, '../../app/app/build')));
 
 app.get('/*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../../app/app/build', 'index.html'))
+    res.sendFile(path.join(__dirname, '../../app/app/build', 'index.html'));
 });
+
 
 app.use((req, res, next) => {
     const error = new Error("NOT FOUND!!");
