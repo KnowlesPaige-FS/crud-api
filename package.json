@@ -11,6 +11,7 @@
     "build-app": "npm run build --prefix app/app",
     "heroku-postbuild": "npm run install-app && npm run install-server && npm run build-app",
     "start": "npm run dev",
+    "prod": "node server.js",
     "dev:react": "concurrently \"npm run server\" \"npm run app\"",
     "app": "cd app/app && npm start",
     "server": "cd server && nodemon server.js"
