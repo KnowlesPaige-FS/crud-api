@@ -13,7 +13,6 @@
     "start": "node server/server.js",  
     "dev": "concurrently \"npm run server\" \"npm run app\"", 
     "prod": "node server.js",
-    "dev:react": "concurrently \"npm run server\" \"npm run app\"",
     "app": "cd app/app && npm start",
     "server": "cd server && nodemon server.js"
   },
