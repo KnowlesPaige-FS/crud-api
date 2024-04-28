@@ -5,16 +5,17 @@
     "node": "21.6.2"
   },
   "description": "",
+  "main": "server.js",
   "scripts": {
     "install-app": "npm install --prefix app/app",
     "install-server": "npm install --prefix server",
     "build-app": "npm run build --prefix app/app",
-    "heroku-postbuild": "npm run install-app && npm run install-server && npm run build-app",
-    "start": "node server/server.js",
-    "dev": "concurrently \"npm run start-server-dev\" \"npm run start-app\"",
-    "start-app": "cd app/app && npm start",
-    "start-server-dev": "cd server && nodemon server.js"
-  },
+    "heroku-postbuild": "concurrently \"npm:install-*\"; concurrently \"npm:build-*\";",
+    "start": "npm start --prefix server",
+    "dev": "concurrently --raw \"npm run server\" \"npm run app\"",
+    "app": "cd app/app && npm run start",
+    "server": "cd server; nodemon server.js"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
