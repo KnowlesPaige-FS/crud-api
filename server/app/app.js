@@ -10,10 +10,10 @@ require('dotenv').config();
 
 app.use(morgan("dev"));
 
-app.use(cors());
-// app.use(cors({
-//     origin: 'https://flickfiction-598c32e758ed.herokuapp.com'
-//   }));
+// app.use(cors());
+app.use(cors({
+    origin: 'https://flickfiction-598c32e758ed.herokuapp.com'
+  }));
 
 app.use(express.urlencoded({
     extended: true
@@ -33,11 +33,11 @@ app.use((req, res, next) => {
     next();
 });
 
-app.get("/", (req, res, next) => {
-    res.status(200).json({
-        message: "Service is up",
-    });
-});
+// app.get("/", (req, res, next) => {
+//     res.status(200).json({
+//         message: "Service is up",
+//     });
+// });
 
 app.use("/v1/app/movies", moviesRouter);
 
