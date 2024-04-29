@@ -33,12 +33,6 @@ app.use((req, res, next) => {
     next();
 });
 
-app.get("/", (req, res, next) => {
-    res.status(200).json({
-        message: "Service is up",
-    });
-});
-
 app.use("/v1/app/movies", moviesRouter);
 
 app.use(express.static(path.join(__dirname, '../../app/app/build')));

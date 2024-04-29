@@ -63,7 +63,6 @@ const styles = {
     about: {
         margin: '0 auto',
         textAlign: 'center',
-        // background: 'rgba(66, 69, 48, .50)',
         background: 'rgba(191, 174, 164, 0.5)',
         height: '60vh',
         display: 'flex',
