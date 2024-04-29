@@ -10,10 +10,10 @@ require('dotenv').config();
 
 app.use(morgan("dev"));
 
-// app.use(cors());
-app.use(cors({
-    origin: 'https://flickfiction-598c32e758ed.herokuapp.com'
-  }));
+app.use(cors());
+// app.use(cors({
+//     origin: 'https://flickfiction-598c32e758ed.herokuapp.com'
+//   }));
 
 app.use(express.urlencoded({
     extended: true
