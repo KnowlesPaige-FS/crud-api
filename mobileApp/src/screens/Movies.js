@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios'
 import { View, Text, Image, StyleSheet, ScrollView } from 'react-native';
-import axios from '../axios.config'; 
 import { useRoute } from '@react-navigation/native';
 import MovieHeader from '../components/MovieHeader';
 
@@ -8,21 +8,29 @@ const Movies = () => {
   const route = useRoute();
   const { id } = route.params;
   const [movie, setMovie] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
       try {
-        const response = await axios.get(`/movies/${id}`);
+        const response = await axios.get(`https://flickfiction-app-c9bea273c5ae.herokuapp.com/v1/app/movies/${id}`);
         const data = response.data;
         setMovie(data);
+        setError(null); 
+        console.log(data);
       } catch (error) {
         console.error(error);
+        setError('Failed to fetch data');
       }
     };
   
     fetchMovieDetails();
   }, [id]);
 
+  if (error) {
+    return <View style={styles.loadingContainer}><Text>Error: {error}</Text></View>;
+  }
+  
   if (!movie) {
     return <View style={styles.loadingContainer}><Text>Loading...</Text></View>;
   }

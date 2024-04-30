@@ -38,8 +38,8 @@ const Cards = props => {
             </TouchableOpacity>
             <Text style={styles.desc}>{formData.eventDesc}</Text>
             <View style={styles.buttonContainer}>
-                <Button title="Edit Event" onPress={() => setShowModal(true)} color="#007BFF" />
-                <Button title="View Details" onPress={() => navigation.navigate('Movies', { movieId: props.id })} color="#007BFF" />
+                <Button title="Edit Event" onPress={() => setShowModal(true)} color="#CF8E55" />
+                <Button title="View Details" onPress={() => navigation.navigate('Movies', { id: props.id })} color="#CF8E55" />
             </View>
             <Modal
                 animationType="slide"
@@ -99,7 +99,7 @@ export default Cards;
 const styles = StyleSheet.create({
     card: {
         margin: 10,
-        padding: 10,
+        padding: 15,
         borderRadius: 8,
         backgroundColor: 'white',
         shadowColor: '#000',
@@ -111,7 +111,8 @@ const styles = StyleSheet.create({
     },
     date: {
         fontSize: 18,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        margin: 5
     },
     imageContainer: {
         height: 200,
@@ -120,7 +121,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#ccc',
-        textAlign: 'center'
+        margin: '0 auto',
+        padding: 5
     },
     overlay: {
         position: 'absolute',
@@ -128,23 +130,32 @@ const styles = StyleSheet.create({
         left: 0,
         right: 0,
         bottom: 0,
-        backgroundColor: 'rgba(0,0,0,0.5)'
+        backgroundColor: 'rgba(191, 174, 164, 0.5)'
     },
     title: {
         fontSize: 24,
         fontWeight: 'bold',
-        color: 'white'
+        color: '#854621',
+        textAlign: 'center',
+        marginBottom: 8,
+
     },
     time: {
         fontSize: 18,
-        color: 'white'
+        color: '#854621',
+        textAlign: 'center'
     },
     desc: {
         fontSize: 16,
-        marginTop: 10
+        marginTop: 10,
+        marginBottom: 10,
+        textAlign: 'center'
     },
     modalView: {
-        margin: 20,
+        position: 'absolute',
+        top: 100,
+        left: 10,
+        right: 10,
         backgroundColor: "white",
         borderRadius: 20,
         padding: 35,

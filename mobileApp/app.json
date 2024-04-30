@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "mobileApplication",
-    "slug": "mobileApplication",
+    "name": "mobileApp",
+    "slug": "mobileApp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/favicon-32x32.png",
@@ -25,6 +25,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "apiBaseUrl": "http://localhost:4003/v1/app"
+    },
+    "plugins": [
+      "expo-font"
+    ]
   }
 }

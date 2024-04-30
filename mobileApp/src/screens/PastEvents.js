@@ -29,7 +29,7 @@ function PastEvents() {
                     location="Bayfront Park, Governor's Harbour"
                     time='7:00pm - 11:00pm'
                     eventDesc="An interactive fun and cult classic magic with The Rocky Horror Picture Show."
-                    onPress={() => navigation.navigate('Movies', { movieId: '66292f7f454841088992898c' })}
+                    onPress={() => navigation.navigate('Movies', { id: '66292f7f454841088992898c' })}
                 />
                 <Cards 
                     img={eventTwo}
@@ -38,7 +38,7 @@ function PastEvents() {
                     location="Cape Eleuthera, Deep Creek"
                     time='7:00pm - 11:00pm'
                     eventDesc="An evening of suspense and intrigue with Jordan Peele's Get Out."
-                    onPress={() => navigation.navigate('Movies', { movieId: '66292f7f4548410889928964' })}
+                    onPress={() => navigation.navigate('Movies', { id: '66292f7f4548410889928964' })}
                 />
                 <Cards 
                     img={eventThree}
@@ -47,7 +47,7 @@ function PastEvents() {
                     location="The Cove, Gregory Town"
                     time='5:00pm - 8:00pm'
                     eventDesc="Rediscover the magic of childhood with Toy Story."
-                    onPress={() => navigation.navigate('Movies', { movieId: '66292f7f4548410889928978' })}
+                    onPress={() => navigation.navigate('Movies', { id: '66292f7f4548410889928978' })}
                 />
                 <Cards 
                     img={eventFour}
@@ -56,7 +56,7 @@ function PastEvents() {
                     location="Potlatch Club, Governor's Harbour"
                     time='8:00pm - 11:00pm'
                     eventDesc="Experience the rush of the Fast & Furious franchise."
-                    onPress={() => navigation.navigate('Movies', { movieId: '66292f7f4548410889928994' })}
+                    onPress={() => navigation.navigate('Movies', { id: '66292f7f4548410889928994' })}
                 />
                 <Cards 
                     img={eventFive}
@@ -65,7 +65,7 @@ function PastEvents() {
                     location="Bayfront Park, Governor's Harbour"
                     time='7:00pm - 11:00pm'
                     eventDesc="A timeless tale of romance and devotion with The Notebook."
-                    onPress={() => navigation.navigate('Movies', { movieId: '66292f7f45484108899289a6' })}
+                    onPress={() => navigation.navigate('Movies', { id: '66292f7f45484108899289a6' })}
                 />
             </View>
             <View style={styles.linkContainer}>

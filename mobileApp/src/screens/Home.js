@@ -27,7 +27,7 @@ function Home() {
                     location="Bayfront Park, Governor's Harbour"
                     time='7:00pm - 11:00pm'
                     eventDesc="Embark on an unforgettable cinematic adventure..."
-                    onPress={() => navigation.navigate('Movies', { movieId: '66292f7f4548410889928950' })}
+                    onPress={() => navigation.navigate('Movies', { id: '66292f7f4548410889928950' })}
                 />
                 <Cards 
                     img={eventTwo}
@@ -36,7 +36,7 @@ function Home() {
                     location="La Bougainvillea, Palmetto Point"
                     time='6:00pm - 11:00pm'
                     eventDesc="Join us for 'Fiesta de la Vida,' a vibrant celebration..."
-                    onPress={() => navigation.navigate('Movies', { movieId: '66292f7f4548410889928948' })}
+                    onPress={() => navigation.navigate('Movies', { id: '66292f7f4548410889928948' })}
                 />
                 <Cards 
                     img={eventThree}
@@ -45,7 +45,7 @@ function Home() {
                     location="The Cove, Gregory Town"
                     time='5:00pm - 8:00pm'
                     eventDesc="Step into the golden age of Hollywood with 'Casablanca Nights'..."
-                    onPress={() => navigation.navigate('Movies', { movieId: '66292f7f4548410889928934' })}
+                    onPress={() => navigation.navigate('Movies', { id: '66292f7f4548410889928934' })}
                 />
             </View>
             <View style={styles.about}>

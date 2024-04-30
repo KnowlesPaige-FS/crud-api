@@ -1,11 +1,11 @@
 import React from 'react';
-import { View, Text, StyleSheet, ImageBackground } from 'react-native';
+import { View, Text, StyleSheet, ImageBackground, ScrollView } from 'react-native';
 import Header from '../components/Header';
 import aboutBackground from '../../assets/img-02.jpg'; 
 
 function About() {
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <ImageBackground source={aboutBackground} style={styles.header}>
                 <Header
                     title='About Us'
@@ -25,7 +25,7 @@ function About() {
                 <Text>Join us on our journey as we explore the enchanting world of cinema. Follow us on social media, subscribe to our newsletter, and stay updated on the latest reviews, articles, and features. Together, let's embark on a cinematic adventure filled with wonder, excitement, and endless possibilities.</Text>
                 <Text>Thank you for visiting FlickFiction. Let the storytelling begin!</Text>
             </View>
-        </View>
+        </ScrollView>
     );
 }
 
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     content: {
         margin: 10,
         padding: 10,
-        width: '90%', 
+        width: '90%',
     },
     title: {
         fontSize: 18, 
