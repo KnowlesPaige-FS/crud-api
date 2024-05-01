@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { useNavigation } from '@react-navigation/native';
 import { View, Text, StyleSheet, TouchableOpacity, Modal, TextInput, Button } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
-const Cards = props => {
+const Cards = (props) => {
     const navigation = useNavigation();
 
     const [showModal, setShowModal] = useState(false);
@@ -19,27 +19,36 @@ const Cards = props => {
     };
 
     const handleSubmit = () => {
-        props.onUpdate(props.id, formData);
+        if (props.onUpdate) {
+            props.onUpdate(props.id, formData);
+        }
         setShowModal(false);
     };
 
     const handleDelete = () => {
-        props.onDelete(props.id);
+        if (props.onDelete) {
+            props.onDelete(props.id);
+        }
         setShowModal(false);
+    };
+
+    const viewDetails = () => {
+        console.log("Navigating to Movies with ID:", props.id);
+        navigation.navigate('Movies', { id: props.id });
     };
 
     return (
         <View style={styles.card}>
             <Text style={styles.date}>{formData.date}</Text>
-            <TouchableOpacity style={styles.imageContainer}>
+            <TouchableOpacity style={styles.imageContainer} onPress={viewDetails}>
                 <View style={styles.overlay} />
                 <Text style={styles.title}>{formData.title}</Text>
                 <Text style={styles.time}>{formData.time} - {formData.location}</Text>
             </TouchableOpacity>
             <Text style={styles.desc}>{formData.eventDesc}</Text>
             <View style={styles.buttonContainer}>
-                <Button title="Edit Event" onPress={() => setShowModal(true)} color="#CF8E55" />
-                <Button title="View Details" onPress={() => navigation.navigate('Movies', { id: props.id })} color="#CF8E55" />
+                {/* <Button title="Edit Event" onPress={() => setShowModal(true)} color="#CF8E55" /> */}
+                <Button title="View Movie Details" onPress={viewDetails} color="#CF8E55" />
             </View>
             <Modal
                 animationType="slide"
@@ -94,8 +103,6 @@ const Cards = props => {
     );
 }
 
-export default Cards;
-
 const styles = StyleSheet.create({
     card: {
         margin: 10,
@@ -138,7 +145,6 @@ const styles = StyleSheet.create({
         color: '#854621',
         textAlign: 'center',
         marginBottom: 8,
-
     },
     time: {
         fontSize: 18,
@@ -196,4 +202,4 @@ const styles = StyleSheet.create({
     }
 });
 
-
+export default Cards;
