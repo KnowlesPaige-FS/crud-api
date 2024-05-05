@@ -6,7 +6,7 @@ const passportService = require('../services/passport');
 const protectedRoute = passport.authenticate('jwt', { session: false });
 
 router.get('/', protectedRoute, movieController.getAllMovies);
-router.get('/:id', movieController.getMovieById);
+router.get('/:id', protectedRoute, movieController.getMovieById);
 router.post('/', movieController.createMovie);
 router.put('/:id', movieController.updateMovie);
 router.delete('/:id', movieController.deleteMovie);
