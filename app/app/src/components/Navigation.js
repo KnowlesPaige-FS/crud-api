@@ -18,6 +18,12 @@ const Navigation = () => {
             <li style={styles.li}>
                 <Link to="/events" style={styles.link}>Events</Link>
             </li>
+            <li style={styles.li}>
+                <Link to="/login" style={styles.link}>Login</Link>
+            </li>
+            <li style={styles.li}>
+                <Link to="/signup" style={styles.link}>SignUp</Link>
+            </li>
             </ul>
         </div>
     </nav>

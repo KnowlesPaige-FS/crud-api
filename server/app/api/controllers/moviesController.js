@@ -2,6 +2,10 @@ const Movie = require('../models/movies');
 const axios = require('axios');
 require('dotenv').config();
 
+const passport = require('passport');
+const passportService = require('../services/passport');
+const protectedRoute = passport.authenticate('jwt', { session: false });
+
 const getAllMovies = async (req, res) => {
     try {
         const movies = await Movie.find();
@@ -24,8 +28,7 @@ const getMovieById = async (req, res) => {
     } catch (err) {
       res.status(500).json({ message: err.message });
     }
-  };
-  
+};
 
 const createMovie = async (req, res) => {
     const { title, poster_path, backdrop_path, genre_ids, genre, release_date, overview } = req.body;
@@ -82,7 +85,6 @@ const deleteMovie = async (req, res) => {
         res.status(500).json({ message: err.message });
     }
 };
-
 
 module.exports = {
     getAllMovies,

@@ -3,6 +3,7 @@ const app = express();
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 const moviesRouter = require("../app/api/routes/movies");
+const authRouter = require("../app/api/routes/authentication");
 const cors = require("cors");
 const path = require("path");
 require('dotenv').config();
@@ -34,6 +35,7 @@ app.use((req, res, next) => {
 });
 
 app.use("/v1/app/movies", moviesRouter);
+app.use("/v1/app/auth", authRouter);
 
 app.use(express.static(path.join(__dirname, '../../app/app/build')));
 
