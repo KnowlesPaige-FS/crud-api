@@ -1,13 +1,24 @@
-import axios from 'axios';
-import authHeader from './authHeader'
+import authHeader from './authHeader';
 
 const getAllPrivateMovies = async () => {
-    const headers = await authHeader()
-    return axios.get(`https://flickfiction-app-c9bea273c5ae.herokuapp.com/v1/app/movies`, { headers })
+    try {
+        const headers = await authHeader();
+        const response = await fetch('https://flickfiction-app-c9bea273c5ae.herokuapp.com/v1/app/movies', {
+            method: 'GET',
+            headers: headers
+        });
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return await response.json();  
+    } catch (error) {
+        console.error("Failed to fetch movies:", error);
+        throw error; 
+    }
 }
 
 const movieService = {
     getAllPrivateMovies
-}
+};
 
 export default movieService;
