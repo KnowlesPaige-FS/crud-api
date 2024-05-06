@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const API_BASE = process.env.NODE_ENV === 'development'
+const API_BASE = process.env.NODE_ENV === 'production'
     ? 'http://localhost:4003/v1/app'
     : 'https://flickfiction-app-c9bea273c5ae.herokuapp.com/v1/app';
 
