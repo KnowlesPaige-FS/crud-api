@@ -36,7 +36,7 @@ function AuthStack() {
     <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="Login">
       <Stack.Screen name="LogIn" component={LogIn} />
       <Stack.Screen name="SignUp" component={SignUp} />
-      <Stack.Screen name="HomeAuth" component={Home} options={{ title: 'Welcome Home' }} />
+      <Stack.Screen name="Home" component={Home} options={{ title: 'Welcome Home' }} />
     </Stack.Navigator>
   );
 }
