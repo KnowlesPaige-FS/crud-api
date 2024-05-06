@@ -7,8 +7,8 @@ const protectedRoute = passport.authenticate('jwt', { session: false });
 
 router.get('/', protectedRoute, movieController.getAllMovies);
 router.get('/:id', protectedRoute, movieController.getMovieById);
-router.post('/', movieController.createMovie);
-router.put('/:id', movieController.updateMovie);
-router.delete('/:id', movieController.deleteMovie);
+router.post('/', protectedRoute, movieController.createMovie);
+router.put('/:id', protectedRoute, movieController.updateMovie);
+router.delete('/:id', protectedRoute, movieController.deleteMovie);
 
 module.exports = router;

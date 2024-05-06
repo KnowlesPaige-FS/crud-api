@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Image, StyleSheet, ScrollView, Button, Modal, TextInput, Alert, ImageBackground } from 'react-native';
+import { View, Text, Image, StyleSheet, ScrollView, Button, Modal, TextInput, Alert } from 'react-native';
 import { useRoute, useNavigation } from '@react-navigation/native';
-import MovieHeader from '../components/MovieHeader';
+import movieService from '../services/movie.service';
 
 const Movies = () => {
   const navigation = useNavigation();
@@ -11,64 +11,38 @@ const Movies = () => {
   const [editData, setEditData] = useState({});
   const [isLoading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
-  const [error, setError] = useState(null); 
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    console.log('Movie ID received:', id); 
     const fetchMovieDetails = async () => {
-      if (!id) {
-        console.error('No movie ID provided');
-        setError('No movie ID provided');
-        setLoading(false);
-        return;
-      }
-      const url = `https://flickfiction-app-c9bea273c5ae.herokuapp.com/v1/app/movies/${id}`;
-      console.log('Fetching from URL:', url); 
+      setLoading(true);
       try {
-        const response = await fetch(url);
-        const json = await response.json();
-        if (!response.ok) {
-          throw new Error(json.message || 'Failed to fetch movie details');
-        }
-        setMovie({
-          ...json,
-          genre: Array.isArray(json.genre) ? json.genre.join(', ') : 'Genre not available' 
-        });
+        const movieData = await movieService.getMovieById(id);
+        setMovie(movieData);
         setEditData({
-          title: json.title,
-          overview: json.overview,
-          genre:  Array.isArray(json.genre) ? json.genre.join(', ') : 'Genre not available' ,
-          release_date: json.release_date
+          title: movieData.title,
+          overview: movieData.overview,
+          genre: movieData.genre.join(', '),
+          release_date: movieData.release_date
         });
+        setError(null);
       } catch (error) {
-        console.error(error);
-        setError(error.message);
+        console.error('Failed to fetch movie:', error);
+        setError(error.toString());
       } finally {
         setLoading(false);
       }
     };
-  
+
     fetchMovieDetails();
   }, [id]);
-  
 
   const handleEdit = async () => {
     try {
-      const response = await fetch(`https://flickfiction-598c32e758ed.herokuapp.com/v1/app/movies/${id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(editData)
-      });
-      const data = await response.json();
-      if (response.ok) {
-        setMovie(data);
-        setShowModal(false);
-        Alert.alert('Success', 'Movie updated successfully');
-      } else {
-        throw new Error(data.message || 'Failed to update the movie');
-      }
+      const updatedMovie = await movieService.updateMovie(id, editData);
+      setMovie(updatedMovie);
+      setShowModal(false);
+      Alert.alert('Success', 'Movie updated successfully');
     } catch (error) {
       Alert.alert('Error', error.message);
     }
@@ -76,16 +50,9 @@ const Movies = () => {
 
   const handleDelete = async () => {
     try {
-      const response = await fetch(`https://flickfiction-598c32e758ed.herokuapp.com/v1/app/movies/${id}`, {
-        method: 'DELETE'
-      });
-      const data = await response.json();
-      if (response.ok) {
-        Alert.alert('Success', 'Movie deleted successfully');
-        navigation.goBack();
-      } else {
-        throw new Error(data.message || 'Failed to delete the movie');
-      }
+      await movieService.deleteMovie(id);
+      Alert.alert('Success', 'Movie deleted successfully');
+      navigation.goBack();
     } catch (error) {
       Alert.alert('Error', error.message);
     }
@@ -100,28 +67,25 @@ const Movies = () => {
   }
 
   return (
-    <ScrollView style={styles.container}>
-      {/* <ImageBackground source={{uri: movie.backdrop_path}}>
-        <MovieHeader  />
-      </ImageBackground> */}
-      <View style={styles.movieContent}>
-        <View style={styles.posterImg}>
-          <View style={styles.overlay}></View>
-          <Image style={styles.img} source={{ uri: movie.poster_path }} />
-        </View>
-        <View style={styles.desc}>
-          <Text style={styles.headings}>{movie.title}</Text>
+    <ScrollView style={styles.container}>  
+       <View style={styles.movieContent}>
+         <View style={styles.posterImg}>
+           <View style={styles.overlay}></View>
+           <Image style={styles.img} source={{ uri: movie.poster_path }} />
+         </View>
+         <View style={styles.desc}>
+           <Text style={styles.headings}>{movie.title}</Text>
           <Text>Release Date: {movie.release_date}</Text>
-          <Text>Genre: {movie.genre}</Text>
+           <Text>Genre: {movie.genre}</Text>
           <View style={styles.overview}>
             <Text style={styles.headings}>Overview:</Text>
             <Text>{movie.overview}</Text>
           </View>
-          <View style={styles.btnContainer}>
+         <View style={styles.btnContainer}>
             <Button title="Edit Movie" onPress={() => setShowModal(true)} color="#9F622D" />
             <Button title="Delete Movie" onPress={handleDelete} color="#611E17" />
-          </View>
-        </View>
+           </View>
+         </View>
       </View>
 
       <Modal
@@ -211,7 +175,7 @@ const styles = StyleSheet.create({
   img: {
     width: '100%',
     height: '100%',
-    borderRadius: 4
+    borderRadius: 4,
   },
   desc: {
     width: '70%',
@@ -267,4 +231,3 @@ const styles = StyleSheet.create({
 });
 
 export default Movies;
-
